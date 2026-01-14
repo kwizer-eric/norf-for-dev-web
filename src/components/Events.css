@@ -1,0 +1,132 @@
+.events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+}
+
+.events-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-item {
+    display: flex;
+    align-items: center;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.event-item:first-child {
+    border-top: 1px solid var(--border-color);
+}
+
+.event-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+    padding-left: 16px;
+    padding-right: 16px;
+    border-color: transparent;
+}
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 48px;
+    min-width: 80px;
+}
+
+.date-month {
+    font-size: 0.875rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.date-day {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1;
+}
+
+.event-info {
+    flex-grow: 1;
+}
+
+.event-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.event-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+}
+
+.event-type {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.event-action {
+    margin-left: 24px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.event-item:hover .event-action {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.btn-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--text-tertiary);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+    background: var(--text-main);
+    color: var(--bg-color);
+    border-color: var(--text-main);
+}
+
+@media (max-width: 768px) {
+    .events-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .event-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .event-date {
+        flex-direction: row;
+        gap: 12px;
+        align-items: baseline;
+        margin-bottom: 8px;
+    }
+
+    .event-action {
+        display: none;
+    }
+}
