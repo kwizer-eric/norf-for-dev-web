@@ -1,0 +1,155 @@
+/* Arc Separator Style */
+.hero-separator-arc {
+    width: 100%;
+    height: 100px;
+    margin-top: -99px;
+    /* Sit flush */
+    position: relative;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.hero-separator-arc svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Interactive Partners Strip */
+.partners-strip-interactive {
+    position: relative;
+    padding: 60px 0 80px;
+    background: var(--bg-color);
+    overflow: hidden;
+    z-index: 4;
+}
+
+/* Label Animation */
+.partners-label-animated {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-tertiary);
+    margin-bottom: 40px;
+    animation: pulseLabel 3s infinite ease-in-out;
+}
+
+@keyframes pulseLabel {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+        color: var(--primary-color);
+    }
+}
+
+/* Marquee Container */
+.marquee-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    /* Space between groups */
+    animation: scrollMarquee 40s linear infinite;
+}
+
+.marquee-group {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-around;
+    gap: 80px;
+    /* Space between items */
+    min-width: 100%;
+}
+
+/* Pause on hover */
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* Partner Items - "Crazy" Design */
+.partner-item {
+    font-size: 4rem;
+    font-weight: 900;
+    color: transparent;
+    /* Hollow text */
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.1);
+    /* Outline */
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    position: relative;
+}
+
+/* Hover Effect: Fill + Glow + Scale */
+.partner-item:hover {
+    color: white;
+    /* Fill */
+    -webkit-text-stroke: 2px white;
+    text-shadow: 0 0 30px var(--primary-glow), 0 0 60px var(--primary-color);
+    transform: scale(1.1) skewX(-10deg);
+    /* Crazy skew */
+    z-index: 10;
+}
+
+/* Glitch Effect on Hover (Optional, kept subtle) */
+.partner-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.partner-item:hover::before {
+    transform: scaleX(1);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+@keyframes scrollMarquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 80px));
+    }
+
+    /* 100% + gap */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .partner-item {
+        font-size: 2.5rem;
+    }
+
+    .marquee-track {
+        gap: 40px;
+        animation-duration: 20s;
+    }
+
+    .marquee-group {
+        gap: 40px;
+    }
+}

@@ -60,6 +60,12 @@ const Navbar = () => {
             </div>
           </li>
           <li className="nav-item">
+            <a href="/#pricing">Pricing</a>
+          </li>
+          <li className="nav-item">
+            <a href="/#stories">Stories</a>
+          </li>
+          <li className="nav-item">
             <NavLink to="/work">Work</NavLink>
           </li>
           <li className="nav-item">

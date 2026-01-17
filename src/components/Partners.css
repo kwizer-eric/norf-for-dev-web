@@ -1,0 +1,97 @@
+.partners-wrapper {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+    background: var(--bg-color);
+    z-index: 5;
+}
+
+/* 1. Neon Edge Fade (Mask Image) */
+.partners-wrapper::before,
+.partners-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.partners-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-color), transparent);
+}
+
+.partners-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-color), transparent);
+}
+
+.partners-content {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+}
+
+.marquee-track {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    white-space: nowrap;
+    animation: scrollInfinite 40s linear infinite;
+    padding-right: 80px;
+    /* offset for gap */
+}
+
+/* 2. Holographic Glow Text */
+.partner-logo-holographic {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05);
+    /* Ghostly base */
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: default;
+
+    /* The Holo Glow */
+    text-shadow: 0 0 10px rgba(255, 94, 0, 0);
+}
+
+/* Hover Effect: Activates the full hologram */
+.partner-logo-holographic:hover {
+    color: rgba(255, 255, 255, 0.9);
+    -webkit-text-stroke: 1px transparent;
+    text-shadow:
+        0 0 10px rgba(255, 94, 0, 0.5),
+        0 0 20px rgba(255, 94, 0, 0.3),
+        0 0 40px rgba(255, 94, 0, 0.2);
+    transform: scale(1.05);
+}
+
+@keyframes scrollInfinite {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .partner-logo-holographic {
+        font-size: 2.5rem;
+    }
+
+    .marquee-track {
+        gap: 40px;
+        padding-right: 40px;
+        animation-duration: 20s;
+    }
+}
